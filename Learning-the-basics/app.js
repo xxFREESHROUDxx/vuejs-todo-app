@@ -9,9 +9,16 @@ const app = Vue.createApp({
   data() {
     return {
       showBooks: true,
-      title: 'The Final Empire',
-      author: 'Baibhav KC',
-      age: 24,
+      books: [
+        { title: 'Name of the Wind', author: 'Patrick Gorgina' },
+        { title: 'Lord of the Rings', author: 'Baibhav KC' },
+        { title: 'Interseller', author: 'Christopher Nolan' },
+      ],
+      // title: 'The Final Empire',
+      // author: 'Baibhav KC',
+      // age: 24,
+      // x: 0,
+      // y: 0,
     };
   },
   // We defined methods property here which has changeTitle method/function
@@ -22,8 +29,13 @@ const app = Vue.createApp({
     toggleShowBooks() {
       this.showBooks = !this.showBooks;
     },
-    handleEvents() {
-      console.log('Event Triggered!');
+    handleEvents(e, data) {
+      console.log('First Argument: ', e, e.type);
+      if (data) return console.log('Second Argument: ', data);
+    },
+    handleMouseMove(e) {
+      this.x = e.offsetX;
+      this.y = e.offsetY;
     },
   },
 });

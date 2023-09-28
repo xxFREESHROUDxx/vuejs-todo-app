@@ -19,25 +19,30 @@
   <body>
     <h1>Hello, Vue!</h1>
     <div id="app">
-      <div @click="toggleShowBooks" v-if="showBooks">
-        <p>{{title}} - {{author}} - {{age}}</p>
+      <div v-if="showBooks">
+        <ul>
+          <li v-for="book in books">
+            <h3>Book Title: {{book.title}}</h3>
+            <p>Book Author: {{book.author}}</p>
+          </li>
+        </ul>
       </div>
 
       <button @click="toggleShowBooks">
         <!-- But if we use v-if then this element gets removed from the dom element  -->
-        <div v-if="showBooks">Click to Hide Books</div>
-        <div v-else>Click to Show Books</div>
+        <div v-if="showBooks">Hide Books</div>
+        <div v-else>Show Books</div>
       </button>
 
       <!-- v-show use css style if value is true to block and if false then display to none -->
-      <div v-show="showBooks">Currently Showing Books</div>
+      <!-- <div v-show="showBooks">Currently Showing Books</div> -->
 
       <br />
       <!-- Mouse Events -->
-      <div class="box" @mouseover="handleEvents">MouseOver (enter)</div>
+      <div class="box" @mouseover="handleEvents($event, 5)">MouseOver (enter)</div>
       <div class="box" @mouseleave="handleEvents">MouseLeave</div>
       <div class="box" @dblclick="handleEvents">DoubleClick</div>
-      <div class="box"></div>
+      <div class="box" @mousemove="handleMouseMove">Position(x,y) - {{x}} {{y}}</div>
     </div>
     <script src="app.js"></script>
   </body>
