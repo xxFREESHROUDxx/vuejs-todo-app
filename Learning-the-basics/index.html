@@ -6,6 +6,33 @@
     <title>Todo Application | Vuejs</title>
     <script src="https://unpkg.com/vue@3.0.2"></script>
     <style>
+      body {
+        background: #eee;
+        max-width: 960px;
+        margin: 20px auto;
+      }
+      p,
+      h3,
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style-type: none;
+        background: #fff;
+        margin: 20px auto;
+        padding: 10px 20px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .fav {
+        background: #7da7ef;
+        color: #fff;
+      }
+
       .box {
         padding: 100px 0;
         width: 400px;
@@ -19,11 +46,15 @@
   <body>
     <h1>Hello, Vue!</h1>
     <div id="app">
+      <!-- Attribute Binding -->
+      <a :href="url" target="_blank">Best Website Ever</a>
+
       <div v-if="showBooks">
         <ul>
-          <li v-for="book in books">
-            <h3>Book Title: {{book.title}}</h3>
-            <p>Book Author: {{book.author}}</p>
+          <li v-for="book in books" :class="{ fav: book.isFav }">
+            <img :src="book.img" :alt="book.title" style="height: 128px" />
+            <h3>Title: {{book.title}}</h3>
+            <p>Author: {{book.author}}</p>
           </li>
         </ul>
       </div>
@@ -33,9 +64,6 @@
         <div v-if="showBooks">Hide Books</div>
         <div v-else>Show Books</div>
       </button>
-
-      <!-- v-show use css style if value is true to block and if false then display to none -->
-      <!-- <div v-show="showBooks">Currently Showing Books</div> -->
 
       <br />
       <!-- Mouse Events -->

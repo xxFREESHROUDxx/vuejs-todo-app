@@ -8,11 +8,22 @@ const app = Vue.createApp({
   //   data function with object returned to it as like a data stored inside a variable
   data() {
     return {
+      url: 'http://www.thenetninja.co.uk',
       showBooks: true,
       books: [
-        { title: 'Name of the Wind', author: 'Patrick Gorgina' },
-        { title: 'Lord of the Rings', author: 'Baibhav KC' },
-        { title: 'Interseller', author: 'Christopher Nolan' },
+        { title: 'Brave New World', author: 'Aldous Huxley', img: 'assets/1.jpg', isFav: true },
+        {
+          title: 'Game of Thrones',
+          author: 'George R.R. Martin',
+          img: 'assets/2.jpg',
+          isFav: false,
+        },
+        {
+          title: 'Harry Potter and the Cursed Child',
+          author: 'J. K. Rowling',
+          img: 'assets/3.jpg',
+          isFav: true,
+        },
       ],
       // title: 'The Final Empire',
       // author: 'Baibhav KC',
