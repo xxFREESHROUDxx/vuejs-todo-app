@@ -8,7 +8,7 @@ const app = Vue.createApp({
   //   data function with object returned to it as like a data stored inside a variable
   data() {
     return {
-      url: 'http://www.thenetninja.co.uk',
+      url: 'http://www.baibhavkc.com.np',
       showBooks: true,
       books: [
         { title: 'Brave New World', author: 'Aldous Huxley', img: 'assets/1.jpg', isFav: true },
@@ -25,11 +25,10 @@ const app = Vue.createApp({
           isFav: true,
         },
       ],
-      // title: 'The Final Empire',
-      // author: 'Baibhav KC',
-      // age: 24,
-      // x: 0,
-      // y: 0,
+
+      age: 24,
+      x: 0,
+      y: 0,
     };
   },
   // We defined methods property here which has changeTitle method/function
@@ -48,7 +47,19 @@ const app = Vue.createApp({
       this.x = e.offsetX;
       this.y = e.offsetY;
     },
+    toggleFav(book) {
+      book.isFav = !book.isFav;
+    },
+  },
+  computed: {
+    filteredBooks() {
+      return this.books.filter((book) => book.isFav);
+    },
   },
 });
 
 app.mount('#app');
+
+// Challenge - Add to Favs [Completed]
+// - Attach a click event to each li tag (for each book)
+// - When a user clicks a li, toggle the 'isFav' property of that book
