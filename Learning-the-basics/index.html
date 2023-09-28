@@ -5,11 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo Application | Vuejs</title>
     <script src="https://unpkg.com/vue@3.0.2"></script>
+    <style>
+      .box {
+        padding: 100px 0;
+        width: 400px;
+        text-align: center;
+        background: #ddd;
+        margin: 20px;
+        display: inline-block;
+      }
+    </style>
   </head>
   <body>
     <h1>Hello, Vue!</h1>
     <div id="app">
-      <div v-if="showBooks">
+      <div @click="toggleShowBooks" v-if="showBooks">
         <p>{{title}} - {{author}} - {{age}}</p>
       </div>
 
@@ -21,6 +31,13 @@
 
       <!-- v-show use css style if value is true to block and if false then display to none -->
       <div v-show="showBooks">Currently Showing Books</div>
+
+      <br />
+      <!-- Mouse Events -->
+      <div class="box" @mouseover="handleEvents">MouseOver (enter)</div>
+      <div class="box" @mouseleave="handleEvents">MouseLeave</div>
+      <div class="box" @dblclick="handleEvents">DoubleClick</div>
+      <div class="box"></div>
     </div>
     <script src="app.js"></script>
   </body>
